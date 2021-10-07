@@ -3,13 +3,18 @@ package br.com.minhaempresa.service;
 import br.com.minhaempresa.domain.Cliente;
 import br.com.minhaempresa.domain.Conta;
 import br.com.minhaempresa.domain.ContaCorrente;
+import br.com.minhaempresa.repository.ClienteRepository;
+import br.com.minhaempresa.repository.ContaRepository;
 
 public class ConsultaSaldoService {
 
-    public double consultarSaldo(String nome, String sobrenome){
-        Cliente cliente = new Cliente(nome, sobrenome);
-        Conta conta = new ContaCorrente(cliente);
+    private ClienteRepository clienteRepository = new ClienteRepository();
 
-        return conta.consultarSaldo();
+    public double consultarSaldo(int id) {
+        Cliente cliente = clienteRepository.buscarCliente(id);
+        Conta conta = new ContaCorrente(cliente);
+        ContaRepository contaRepository = new ContaRepository();
+        return contaRepository.consultarSaldo();
     }
+
 }

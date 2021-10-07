@@ -11,7 +11,7 @@ public class Conexao {
 
     public static EntityManager getConexao() {
         if(entityManagerFactory == null)
-            entityManagerFactory = Persistence.createEntityManagerFactory("SistemaFinanceiroWeb");
+            entityManagerFactory = Persistence.createEntityManagerFactory("sistema-financeiro-web");
 
         if(entityManager == null)
             entityManager = entityManagerFactory.createEntityManager();

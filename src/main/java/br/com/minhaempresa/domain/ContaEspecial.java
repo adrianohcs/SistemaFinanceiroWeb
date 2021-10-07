@@ -1,5 +1,8 @@
 package br.com.minhaempresa.domain;
 
+import javax.persistence.Entity;
+
+//@Entity
 public class ContaEspecial extends ContaCorrente {
 
     private double limite;
